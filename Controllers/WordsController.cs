@@ -2,7 +2,8 @@ using Search_Engine_Project.Models;
 using Search_Engine_Project.Services;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
-
+using Search_Engine_Project.Core;
+using System;
 namespace WordsApi.Controllers
 {
     [Route("api/[controller]")]
@@ -13,12 +14,16 @@ namespace WordsApi.Controllers
 
         public WordsController(WordService WordService)
         {
+            
             _WordService = WordService;
         }
 
         [HttpGet]
-        public ActionResult<List<Word>> Get() =>
-            _WordService.Get();
+        public ActionResult<List<Word>> Get(){
+            Parser.GetTextFromPDF();
+            return _WordService.Get();
+        }
+           
 
     //     [HttpGet("{id:length(24)}", Name = "GetWord")]
     //     public ActionResult<Word> Get(string id)
