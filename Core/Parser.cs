@@ -5,12 +5,14 @@ using System;
 using System.Text;
 using System.IO;
 using System.Web;
+using Microsoft.Office.Interop.Word; 
 
 namespace Search_Engine_Project.Core
 {
     public class Parser
     {
         private static string _rootPath = getRootPath();
+
         public static string GetTextFromPDF(){  
             try{
                 StringBuilder text = new StringBuilder();  
@@ -25,11 +27,33 @@ namespace Search_Engine_Project.Core
                 Console.WriteLine(text.ToString());
                 return text.ToString();
             }catch(Exception ex){
-                Console.WriteLine("An error occured");
                 return "";
                 
             }
-            return "";
+        }  
+
+        public static string GetTextFromWord(){  
+            StringBuilder text = new StringBuilder();  
+            Microsoft.Office.Interop.Word.Application word = new Microsoft.Office.Interop.Word.Application();  
+            object miss = System.Reflection.Missing.Value;  
+            // object path = System.IO.Path.Combine(_rootPath, "docs", "CSC316_ASSNM.docx");  
+            object path = @"C:\Users\USER\Documents\CSC316_ASSNM.docx";
+            object readOnly = true;  
+            Microsoft.Office.Interop.Word.Document docs = word.Documents.Open(ref path, ref miss, ref readOnly, ref miss, ref miss, ref miss, ref miss, ref miss, ref miss, ref miss, ref miss, ref miss, ref miss, ref miss, ref miss, ref miss);  
+            
+            for (int i = 0; i < docs.Paragraphs.Count; i++)  
+            {  
+                text.Append(" \r\n " + docs.Paragraphs[i + 1].Range.Text.ToString());  
+            }   
+            Console.WriteLine(text.ToString());
+            return text.ToString();  
+        }  
+
+        public static string GetTextFromText(){  
+            string filePath = System.IO.Path.Combine(_rootPath, "docs", "LICENSE.txt");
+            string text = System.IO.File.ReadAllText(filePath);  
+            Console.WriteLine(text.ToString());
+            return text.ToString();  
         }  
 
         private static string getRootPath(){

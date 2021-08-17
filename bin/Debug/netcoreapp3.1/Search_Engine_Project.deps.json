@@ -25,6 +25,7 @@
       "Search_Engine_Project/1.0.0": {
         "dependencies": {
           "Microsoft.EntityFrameworkCore.Design": "3.1.0",
+          "Microsoft.Office.Interop.Word": "15.0.4797.1003",
           "Microsoft.VisualStudio.Web.CodeGeneration.Design": "3.1.0",
           "MongoDB.Driver": "2.13.1",
           "iTextSharp": "5.5.13.2",
@@ -747,6 +748,17 @@
       "Microsoft.Extensions.Primitives/3.1.0": {},
       "Microsoft.NETCore.Platforms/2.1.2": {},
       "Microsoft.NETCore.Targets/1.1.0": {},
+      "Microsoft.Office.Interop.Word/15.0.4797.1003": {
+        "runtime": {
+          "lib/net20/Microsoft.Office.Interop.Word.dll": {
+            "assemblyVersion": "15.0.0.0",
+            "fileVersion": "15.0.4797.1003"
+          }
+        },
+        "compile": {
+          "lib/net20/Microsoft.Office.Interop.Word.dll": {}
+        }
+      },
       "Microsoft.VisualStudio.Web.CodeGeneration/3.1.0": {
         "dependencies": {
           "Microsoft.Extensions.DependencyInjection": "3.1.0",
@@ -3723,6 +3735,13 @@
       "sha512": "sha512-aOZA3BWfz9RXjpzt0sRJJMjAscAUm3Hoa4UWAfceV9UTYxgwZ1lZt5nO2myFf+/jetYQo4uTP7zS8sJY67BBxg==",
       "path": "microsoft.netcore.targets/1.1.0",
       "hashPath": "microsoft.netcore.targets.1.1.0.nupkg.sha512"
+    },
+    "Microsoft.Office.Interop.Word/15.0.4797.1003": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-p22pljmHaQjDxNLqO+uO5vi3y0TK5t1mAtSAg93K28/e12Hw3qzfflAo6XHvNXxnvz9HZGv59vLCwIaC9xbXNQ==",
+      "path": "microsoft.office.interop.word/15.0.4797.1003",
+      "hashPath": "microsoft.office.interop.word.15.0.4797.1003.nupkg.sha512"
     },
     "Microsoft.VisualStudio.Web.CodeGeneration/3.1.0": {
       "type": "package",

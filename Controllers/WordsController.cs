@@ -20,7 +20,7 @@ namespace WordsApi.Controllers
 
         [HttpGet]
         public ActionResult<List<Word>> Get(){
-            Parser.GetTextFromPDF();
+            Parser.GetTextFromText();
             return _WordService.Get();
         }
            
