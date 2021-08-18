@@ -112,3 +112,14 @@ C:\Users\USER\Documents\Codes\C#\Search_Engine_Project\obj\Debug\netcoreapp3.1\S
 C:\Users\USER\Documents\Codes\C#\Search_Engine_Project\bin\Debug\netcoreapp3.1\BouncyCastle.Crypto.dll
 C:\Users\USER\Documents\Codes\C#\Search_Engine_Project\bin\Debug\netcoreapp3.1\itextsharp.dll
 C:\Users\USER\Documents\Codes\C#\Search_Engine_Project\bin\Debug\netcoreapp3.1\Microsoft.Office.Interop.Word.dll
+C:\Users\USER\Documents\Codes\C#\Search_Engine_Project\bin\Debug\netcoreapp3.1\Spire.Doc.dll
+C:\Users\USER\Documents\Codes\C#\Search_Engine_Project\bin\Debug\netcoreapp3.1\Spire.License.dll
+C:\Users\USER\Documents\Codes\C#\Search_Engine_Project\bin\Debug\netcoreapp3.1\Spire.Pdf.dll
+C:\Users\USER\Documents\Codes\C#\Search_Engine_Project\bin\Debug\netcoreapp3.1\SkiaSharp.dll
+C:\Users\USER\Documents\Codes\C#\Search_Engine_Project\bin\Debug\netcoreapp3.1\System.Security.Cryptography.Pkcs.dll
+C:\Users\USER\Documents\Codes\C#\Search_Engine_Project\bin\Debug\netcoreapp3.1\runtimes\osx\native\libSkiaSharp.dylib
+C:\Users\USER\Documents\Codes\C#\Search_Engine_Project\bin\Debug\netcoreapp3.1\runtimes\tizen-armel\native\libSkiaSharp.so
+C:\Users\USER\Documents\Codes\C#\Search_Engine_Project\bin\Debug\netcoreapp3.1\runtimes\tizen-x86\native\libSkiaSharp.so
+C:\Users\USER\Documents\Codes\C#\Search_Engine_Project\bin\Debug\netcoreapp3.1\runtimes\win-x64\native\libSkiaSharp.dll
+C:\Users\USER\Documents\Codes\C#\Search_Engine_Project\bin\Debug\netcoreapp3.1\runtimes\win-x86\native\libSkiaSharp.dll
+C:\Users\USER\Documents\Codes\C#\Search_Engine_Project\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp2.1\System.Security.Cryptography.Pkcs.dll

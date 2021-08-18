@@ -2,10 +2,13 @@ using iTextSharp.text;
 using iTextSharp.text.pdf;  
 using iTextSharp.text.pdf.parser;  
 using System;
+using Spire.Doc;
+using Document = Spire.Doc.Document;
+using Section = Spire.Doc.Section;
+using Spire.Doc.Documents;
+using Paragraph = Spire.Doc.Documents.Paragraph;
 using System.Text;
 using System.IO;
-using System.Web;
-using Microsoft.Office.Interop.Word; 
 
 namespace Search_Engine_Project.Core
 {
@@ -34,17 +37,21 @@ namespace Search_Engine_Project.Core
 
         public static string GetTextFromWord(){  
             StringBuilder text = new StringBuilder();  
-            Microsoft.Office.Interop.Word.Application word = new Microsoft.Office.Interop.Word.Application();  
-            object miss = System.Reflection.Missing.Value;  
-            // object path = System.IO.Path.Combine(_rootPath, "docs", "CSC316_ASSNM.docx");  
-            object path = @"C:\Users\USER\Documents\CSC316_ASSNM.docx";
-            object readOnly = true;  
-            Microsoft.Office.Interop.Word.Document docs = word.Documents.Open(ref path, ref miss, ref readOnly, ref miss, ref miss, ref miss, ref miss, ref miss, ref miss, ref miss, ref miss, ref miss, ref miss, ref miss, ref miss, ref miss);  
-            
-            for (int i = 0; i < docs.Paragraphs.Count; i++)  
-            {  
-                text.Append(" \r\n " + docs.Paragraphs[i + 1].Range.Text.ToString());  
-            }   
+            string filePath = System.IO.Path.Combine(_rootPath, "docs", "CSC316_ASSNM.docx");  
+
+            //Load Document
+            Document document = new Document();
+            document.LoadFromFile(filePath);
+
+            //Extract Text from Word and Save to StringBuilder Instance
+            foreach (Section section in document.Sections)
+            {
+                foreach (Paragraph paragraph in section.Paragraphs)
+                {
+                    text.AppendLine(paragraph.Text);
+                }
+            }
+
             Console.WriteLine(text.ToString());
             return text.ToString();  
         }  
