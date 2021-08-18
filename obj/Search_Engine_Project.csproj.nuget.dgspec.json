@@ -38,19 +38,11 @@
       "frameworks": {
         "netcoreapp3.1": {
           "dependencies": {
-            "FreeSpire.Doc": {
-              "target": "Package",
-              "version": "[7.11.0, )"
-            },
             "Microsoft.EntityFrameworkCore.Design": {
               "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
               "suppressParent": "All",
               "target": "Package",
               "version": "[3.1.0, )"
-            },
-            "Microsoft.Office.Interop.Word": {
-              "target": "Package",
-              "version": "[15.0.4797.1003, )"
             },
             "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
               "target": "Package",
@@ -60,9 +52,9 @@
               "target": "Package",
               "version": "[2.13.1, )"
             },
-            "iTextSharp": {
+            "Spire.Office": {
               "target": "Package",
-              "version": "[5.5.13.2, )"
+              "version": "[6.7.0, )"
             }
           },
           "imports": [

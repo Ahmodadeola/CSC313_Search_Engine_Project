@@ -2,15 +2,6 @@
   "version": 3,
   "targets": {
     ".NETCoreApp,Version=v3.1": {
-      "BouncyCastle/1.8.6.1": {
-        "type": "package",
-        "compile": {
-          "lib/BouncyCastle.Crypto.dll": {}
-        },
-        "runtime": {
-          "lib/BouncyCastle.Crypto.dll": {}
-        }
-      },
       "DnsClient/1.4.0": {
         "type": "package",
         "compile": {
@@ -18,36 +9,6 @@
         },
         "runtime": {
           "lib/netstandard2.1/DnsClient.dll": {}
-        }
-      },
-      "FreeSpire.Doc/7.11.0": {
-        "type": "package",
-        "dependencies": {
-          "SkiaSharp": "1.68.0",
-          "System.Security.Cryptography.Xml": "4.5.0",
-          "System.Text.Encoding.CodePages": "4.5.0"
-        },
-        "compile": {
-          "lib/netcoreapp2.0/Spire.Doc.dll": {},
-          "lib/netcoreapp2.0/Spire.License.dll": {},
-          "lib/netcoreapp2.0/Spire.Pdf.dll": {}
-        },
-        "runtime": {
-          "lib/netcoreapp2.0/Spire.Doc.dll": {},
-          "lib/netcoreapp2.0/Spire.License.dll": {},
-          "lib/netcoreapp2.0/Spire.Pdf.dll": {}
-        }
-      },
-      "iTextSharp/5.5.13.2": {
-        "type": "package",
-        "dependencies": {
-          "BouncyCastle": "1.8.6.1"
-        },
-        "compile": {
-          "lib/itextsharp.dll": {}
-        },
-        "runtime": {
-          "lib/itextsharp.dll": {}
         }
       },
       "Microsoft.AspNetCore.Html.Abstractions/2.2.0": {
@@ -579,15 +540,6 @@
           "lib/netstandard1.0/_._": {}
         }
       },
-      "Microsoft.Office.Interop.Word/15.0.4797.1003": {
-        "type": "package",
-        "compile": {
-          "lib/net20/Microsoft.Office.Interop.Word.dll": {}
-        },
-        "runtime": {
-          "lib/net20/Microsoft.Office.Interop.Word.dll": {}
-        }
-      },
       "Microsoft.VisualStudio.Web.CodeGeneration/3.1.0": {
         "type": "package",
         "dependencies": {
@@ -1086,6 +1038,35 @@
             "assetType": "native",
             "rid": "win-x86"
           }
+        }
+      },
+      "Spire.Office/6.7.0": {
+        "type": "package",
+        "dependencies": {
+          "SkiaSharp": "1.68.0",
+          "System.Buffers": "4.5.0",
+          "System.Memory": "4.5.0",
+          "System.Runtime.CompilerServices.Unsafe": "4.5.0",
+          "System.Security.Cryptography.Xml": "4.5.0",
+          "System.Text.Encoding.CodePages": "4.5.0"
+        },
+        "compile": {
+          "lib/netstandard2.0/Spire.Barcode.dll": {},
+          "lib/netstandard2.0/Spire.Doc.dll": {},
+          "lib/netstandard2.0/Spire.Email.dll": {},
+          "lib/netstandard2.0/Spire.License.dll": {},
+          "lib/netstandard2.0/Spire.Pdf.dll": {},
+          "lib/netstandard2.0/Spire.Presentation.dll": {},
+          "lib/netstandard2.0/Spire.XLS.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/Spire.Barcode.dll": {},
+          "lib/netstandard2.0/Spire.Doc.dll": {},
+          "lib/netstandard2.0/Spire.Email.dll": {},
+          "lib/netstandard2.0/Spire.License.dll": {},
+          "lib/netstandard2.0/Spire.Pdf.dll": {},
+          "lib/netstandard2.0/Spire.Presentation.dll": {},
+          "lib/netstandard2.0/Spire.XLS.dll": {}
         }
       },
       "System.AppContext/4.3.0": {
@@ -2268,19 +2249,6 @@
     }
   },
   "libraries": {
-    "BouncyCastle/1.8.6.1": {
-      "sha512": "rkqpuKmJkdcfTMBkIj1b5nMdBAWKwAyh+I/BQYeqqSD2jkIlhwc9qBNKmSbnpmmm5c29qHZGLpvBSTNWvDLtQA==",
-      "type": "package",
-      "path": "bouncycastle/1.8.6.1",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "README.md",
-        "bouncycastle.1.8.6.1.nupkg.sha512",
-        "bouncycastle.nuspec",
-        "lib/BouncyCastle.Crypto.dll"
-      ]
-    },
     "DnsClient/1.4.0": {
       "sha512": "CO1NG1zQdV0nEAXmr/KppLZ0S1qkaPwV0kPX5YPgmYBtrBVh1XMYHM54IXy3RBJu1k4thFtpzwo4HNHqxiuFYw==",
       "type": "package",
@@ -2301,62 +2269,6 @@
         "lib/netstandard2.0/DnsClient.xml",
         "lib/netstandard2.1/DnsClient.dll",
         "lib/netstandard2.1/DnsClient.xml"
-      ]
-    },
-    "FreeSpire.Doc/7.11.0": {
-      "sha512": "Rg7axyvwCU8PPuhsetIM4FZuuOL6PROJOXlhJo760wDS/4JJdo99JVDjqpGHej78yLYMSvtSuq0jjuTIYNEZgw==",
-      "type": "package",
-      "path": "freespire.doc/7.11.0",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "freespire.doc.7.11.0.nupkg.sha512",
-        "freespire.doc.nuspec",
-        "lib/net20/Spire.Doc.XML",
-        "lib/net20/Spire.Doc.dll",
-        "lib/net20/Spire.License.dll",
-        "lib/net20/Spire.License.xml",
-        "lib/net20/Spire.Pdf.dll",
-        "lib/net40/Spire.Doc.XML",
-        "lib/net40/Spire.Doc.dll",
-        "lib/net40/Spire.License.dll",
-        "lib/net40/Spire.License.xml",
-        "lib/net40/Spire.Pdf.dll",
-        "lib/net46/Spire.Doc.dll",
-        "lib/net46/Spire.Doc.xml",
-        "lib/net46/Spire.License.dll",
-        "lib/net46/Spire.License.xml",
-        "lib/net46/Spire.Pdf.dll",
-        "lib/net46/Spire.Pdf.xml",
-        "lib/netcoreapp2.0/Spire.Doc.dll",
-        "lib/netcoreapp2.0/Spire.Doc.xml",
-        "lib/netcoreapp2.0/Spire.License.dll",
-        "lib/netcoreapp2.0/Spire.License.xml",
-        "lib/netcoreapp2.0/Spire.Pdf.dll",
-        "lib/netcoreapp2.0/Spire.Pdf.xml",
-        "lib/netstandard2.0/Spire.Doc.dll",
-        "lib/netstandard2.0/Spire.Doc.xml",
-        "lib/netstandard2.0/Spire.License.dll",
-        "lib/netstandard2.0/Spire.License.xml",
-        "lib/netstandard2.0/Spire.Pdf.dll",
-        "lib/netstandard2.0/Spire.Pdf.xml",
-        "license.txt"
-      ]
-    },
-    "iTextSharp/5.5.13.2": {
-      "sha512": "8m9oT1nh9F4Z1tzWUey/8lEzZtMGFCDXQY5+8/SSmPgUWAAAWniRo8pimKUZyteNqJr5vtFBxjAhRwLxG7Q0zQ==",
-      "type": "package",
-      "path": "itextsharp/5.5.13.2",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "LICENSE.md",
-        "gnu-agpl-v3.0.md",
-        "itextsharp.5.5.13.2.nupkg.sha512",
-        "itextsharp.nuspec",
-        "lib/iTextSharp.xml",
-        "lib/itextsharp.dll",
-        "notice.txt"
       ]
     },
     "Microsoft.AspNetCore.Html.Abstractions/2.2.0": {
@@ -3006,18 +2918,6 @@
         "microsoft.netcore.targets.1.1.0.nupkg.sha512",
         "microsoft.netcore.targets.nuspec",
         "runtime.json"
-      ]
-    },
-    "Microsoft.Office.Interop.Word/15.0.4797.1003": {
-      "sha512": "p22pljmHaQjDxNLqO+uO5vi3y0TK5t1mAtSAg93K28/e12Hw3qzfflAo6XHvNXxnvz9HZGv59vLCwIaC9xbXNQ==",
-      "type": "package",
-      "path": "microsoft.office.interop.word/15.0.4797.1003",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "lib/net20/Microsoft.Office.Interop.Word.dll",
-        "microsoft.office.interop.word.15.0.4797.1003.nupkg.sha512",
-        "microsoft.office.interop.word.nuspec"
       ]
     },
     "Microsoft.VisualStudio.Web.CodeGeneration/3.1.0": {
@@ -3930,6 +3830,101 @@
         "skiasharp.1.68.0.nupkg.sha512",
         "skiasharp.nuspec",
         "xamarin.interactive/SkiaSharp.Workbooks.dll"
+      ]
+    },
+    "Spire.Office/6.7.0": {
+      "sha512": "SS0szOCQ5r7G9xcrzOrw/Nvwjm2uak26JPQCp8f+9ZrcefVcUQ7ZyuXUd7Aa8AAZUmbrm264eTRxD1mptIwLyw==",
+      "type": "package",
+      "path": "spire.office/6.7.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/MonoAndroid/Spire.Barcode.dll",
+        "lib/MonoAndroid/Spire.Barcode.xml",
+        "lib/MonoAndroid/Spire.Doc.dll",
+        "lib/MonoAndroid/Spire.Doc.xml",
+        "lib/MonoAndroid/Spire.Email.dll",
+        "lib/MonoAndroid/Spire.Email.xml",
+        "lib/MonoAndroid/Spire.License.dll",
+        "lib/MonoAndroid/Spire.License.xml",
+        "lib/MonoAndroid/Spire.Pdf.dll",
+        "lib/MonoAndroid/Spire.Pdf.xml",
+        "lib/MonoAndroid/Spire.Presentation.dll",
+        "lib/MonoAndroid/Spire.Presentation.xml",
+        "lib/MonoAndroid/Spire.XLS.dll",
+        "lib/MonoAndroid/Spire.XLS.xml",
+        "lib/net40/Spire.Barcode.dll",
+        "lib/net40/Spire.Barcode.xml",
+        "lib/net40/Spire.DataExport.ResourceMgr.dll",
+        "lib/net40/Spire.DataExport.XML",
+        "lib/net40/Spire.DataExport.dll",
+        "lib/net40/Spire.Doc.XML",
+        "lib/net40/Spire.Doc.dll",
+        "lib/net40/Spire.DocViewer.Forms.dll",
+        "lib/net40/Spire.DocViewer.Forms.xml",
+        "lib/net40/Spire.Email.dll",
+        "lib/net40/Spire.Email.xml",
+        "lib/net40/Spire.License.dll",
+        "lib/net40/Spire.License.xml",
+        "lib/net40/Spire.OfficeViewer.Forms.dll",
+        "lib/net40/Spire.OfficeViewer.Forms.xml",
+        "lib/net40/Spire.Pdf.XML",
+        "lib/net40/Spire.Pdf.dll",
+        "lib/net40/Spire.PdfViewer.Asp.dll",
+        "lib/net40/Spire.PdfViewer.Asp.xml",
+        "lib/net40/Spire.PdfViewer.Forms.XML",
+        "lib/net40/Spire.PdfViewer.Forms.dll",
+        "lib/net40/Spire.Presentation.dll",
+        "lib/net40/Spire.Presentation.xml",
+        "lib/net40/Spire.Spreadsheet.dll",
+        "lib/net40/Spire.Spreadsheet.xml",
+        "lib/net40/Spire.XLS.XML",
+        "lib/net40/Spire.XLS.dll",
+        "lib/net5.0/Spire.Barcode.dll",
+        "lib/net5.0/Spire.Barcode.xml",
+        "lib/net5.0/Spire.Doc.dll",
+        "lib/net5.0/Spire.Doc.xml",
+        "lib/net5.0/Spire.Email.dll",
+        "lib/net5.0/Spire.Email.xml",
+        "lib/net5.0/Spire.License.dll",
+        "lib/net5.0/Spire.License.xml",
+        "lib/net5.0/Spire.Pdf.dll",
+        "lib/net5.0/Spire.Pdf.xml",
+        "lib/net5.0/Spire.Presentation.dll",
+        "lib/net5.0/Spire.Presentation.xml",
+        "lib/net5.0/Spire.XLS.dll",
+        "lib/net5.0/Spire.XLS.xml",
+        "lib/netstandard2.0/Spire.Barcode.dll",
+        "lib/netstandard2.0/Spire.Barcode.xml",
+        "lib/netstandard2.0/Spire.Doc.dll",
+        "lib/netstandard2.0/Spire.Doc.xml",
+        "lib/netstandard2.0/Spire.Email.dll",
+        "lib/netstandard2.0/Spire.Email.xml",
+        "lib/netstandard2.0/Spire.License.dll",
+        "lib/netstandard2.0/Spire.License.xml",
+        "lib/netstandard2.0/Spire.Pdf.dll",
+        "lib/netstandard2.0/Spire.Pdf.xml",
+        "lib/netstandard2.0/Spire.Presentation.dll",
+        "lib/netstandard2.0/Spire.Presentation.xml",
+        "lib/netstandard2.0/Spire.XLS.dll",
+        "lib/netstandard2.0/Spire.XLS.xml",
+        "lib/xamarinios/Spire.Barcode.dll",
+        "lib/xamarinios/Spire.Barcode.xml",
+        "lib/xamarinios/Spire.Doc.dll",
+        "lib/xamarinios/Spire.Doc.xml",
+        "lib/xamarinios/Spire.Email.dll",
+        "lib/xamarinios/Spire.Email.xml",
+        "lib/xamarinios/Spire.License.dll",
+        "lib/xamarinios/Spire.License.xml",
+        "lib/xamarinios/Spire.Pdf.dll",
+        "lib/xamarinios/Spire.Pdf.xml",
+        "lib/xamarinios/Spire.Presentation.dll",
+        "lib/xamarinios/Spire.Presentation.xml",
+        "lib/xamarinios/Spire.XLS.dll",
+        "lib/xamarinios/Spire.XLS.xml",
+        "license.txt",
+        "spire.office.6.7.0.nupkg.sha512",
+        "spire.office.nuspec"
       ]
     },
     "System.AppContext/4.3.0": {
@@ -7460,12 +7455,10 @@
   },
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v3.1": [
-      "FreeSpire.Doc >= 7.11.0",
       "Microsoft.EntityFrameworkCore.Design >= 3.1.0",
-      "Microsoft.Office.Interop.Word >= 15.0.4797.1003",
       "Microsoft.VisualStudio.Web.CodeGeneration.Design >= 3.1.0",
       "MongoDB.Driver >= 2.13.1",
-      "iTextSharp >= 5.5.13.2"
+      "Spire.Office >= 6.7.0"
     ]
   },
   "packageFolders": {
@@ -7505,19 +7498,11 @@
     "frameworks": {
       "netcoreapp3.1": {
         "dependencies": {
-          "FreeSpire.Doc": {
-            "target": "Package",
-            "version": "[7.11.0, )"
-          },
           "Microsoft.EntityFrameworkCore.Design": {
             "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
             "suppressParent": "All",
             "target": "Package",
             "version": "[3.1.0, )"
-          },
-          "Microsoft.Office.Interop.Word": {
-            "target": "Package",
-            "version": "[15.0.4797.1003, )"
           },
           "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
             "target": "Package",
@@ -7527,9 +7512,9 @@
             "target": "Package",
             "version": "[2.13.1, )"
           },
-          "iTextSharp": {
+          "Spire.Office": {
             "target": "Package",
-            "version": "[5.5.13.2, )"
+            "version": "[6.7.0, )"
           }
         },
         "imports": [
@@ -7553,37 +7538,5 @@
         "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.101\\RuntimeIdentifierGraph.json"
       }
     }
-  },
-  "logs": [
-    {
-      "code": "NU1701",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "Package 'BouncyCastle 1.8.6.1' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8' instead of the project target framework '.NETCoreApp,Version=v3.1'. This package may not be fully compatible with your project.",
-      "libraryId": "BouncyCastle",
-      "targetGraphs": [
-        ".NETCoreApp,Version=v3.1"
-      ]
-    },
-    {
-      "code": "NU1701",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "Package 'iTextSharp 5.5.13.2' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8' instead of the project target framework '.NETCoreApp,Version=v3.1'. This package may not be fully compatible with your project.",
-      "libraryId": "iTextSharp",
-      "targetGraphs": [
-        ".NETCoreApp,Version=v3.1"
-      ]
-    },
-    {
-      "code": "NU1701",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "Package 'Microsoft.Office.Interop.Word 15.0.4797.1003' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8' instead of the project target framework '.NETCoreApp,Version=v3.1'. This package may not be fully compatible with your project.",
-      "libraryId": "Microsoft.Office.Interop.Word",
-      "targetGraphs": [
-        ".NETCoreApp,Version=v3.1"
-      ]
-    }
-  ]
+  }
 }
