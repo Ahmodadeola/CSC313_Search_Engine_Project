@@ -24,6 +24,7 @@
     ".NETCoreApp,Version=v3.1": {
       "Search_Engine_Project/1.0.0": {
         "dependencies": {
+          "IronXL.Excel": "2020.12.2",
           "Microsoft.EntityFrameworkCore.Design": "3.1.0",
           "Microsoft.VisualStudio.Web.CodeGeneration.Design": "3.1.0",
           "MongoDB.Driver": "2.13.1",
@@ -326,6 +327,17 @@
         },
         "compile": {
           "lib/netstandard2.1/DnsClient.dll": {}
+        }
+      },
+      "IronXL.Excel/2020.12.2": {
+        "runtime": {
+          "lib/netstandard2.0/IronXL.dll": {
+            "assemblyVersion": "2020.12.2.0",
+            "fileVersion": "2020.12.2.0"
+          }
+        },
+        "compile": {
+          "lib/netstandard2.0/IronXL.dll": {}
         }
       },
       "Microsoft.AspNetCore.Html.Abstractions/2.2.0": {
@@ -3581,6 +3593,13 @@
       "sha512": "sha512-CO1NG1zQdV0nEAXmr/KppLZ0S1qkaPwV0kPX5YPgmYBtrBVh1XMYHM54IXy3RBJu1k4thFtpzwo4HNHqxiuFYw==",
       "path": "dnsclient/1.4.0",
       "hashPath": "dnsclient.1.4.0.nupkg.sha512"
+    },
+    "IronXL.Excel/2020.12.2": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-tsdwSR82HNZM/gtq2DfL4N7jx61K58EwBGVH7Yc1T5BwRUeHVthzbWnRfajCqIecfZThhvIqBqOzm2CF+mXoxw==",
+      "path": "ironxl.excel/2020.12.2",
+      "hashPath": "ironxl.excel.2020.12.2.nupkg.sha512"
     },
     "Microsoft.AspNetCore.Html.Abstractions/2.2.0": {
       "type": "package",

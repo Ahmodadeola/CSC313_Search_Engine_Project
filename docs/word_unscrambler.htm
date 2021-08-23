@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>WORD UNSCRAMBLER</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	</head>
+	<link rel="stylesheet" type="text/css" href="style.css" />
+	<body>
+		<header>
+			<h2>Word Unscrambler</h2>
+		</header>
+		<main>
+			<form action="#">
+				<div>
+					<input type="text" id="searchWord" name="SearchWord" />
+					<label>Enter word</label>
+				</div>
+				<button id="submit">Search</button>
+			</form>
+			<section>
+				<div id="wordcontain">
+					<h3>All Valid English Words From The Word Entered</h3>
+					<div id="allwords">
+						<script type="text/template" data-template="words">
+							<p>{{word}}</p>
+						</script>
+					</div>
+				</div>
+			</section>
+		</main>
+		<script type="text/javascript" src="jquery-3.3.1.min.js"></script>
+		<script type="text/javascript" src="dict.js"></script>
+		<script type="text/javascript" src="script.js"></script>
+		<script type="text/javascript" src="app2.js"></script>
+	</body>
+</html>

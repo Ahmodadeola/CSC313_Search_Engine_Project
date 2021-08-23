@@ -124,3 +124,4 @@ C:\Users\USER\Documents\Codes\C#\Search_Engine_Project\bin\Debug\netcoreapp3.1\S
 C:\Users\USER\Documents\Codes\C#\Search_Engine_Project\bin\Debug\netcoreapp3.1\Spire.Email.dll
 C:\Users\USER\Documents\Codes\C#\Search_Engine_Project\bin\Debug\netcoreapp3.1\Spire.Presentation.dll
 C:\Users\USER\Documents\Codes\C#\Search_Engine_Project\bin\Debug\netcoreapp3.1\Spire.XLS.dll
+C:\Users\USER\Documents\Codes\C#\Search_Engine_Project\bin\Debug\netcoreapp3.1\IronXL.dll
