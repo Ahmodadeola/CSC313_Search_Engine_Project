@@ -13,12 +13,71 @@ using Spire.Pdf.Exporting.Text;
 using IronXL;
 using System.Linq;
 
+/*****************************************************
+*
+*
+* Parser Methods Specification
+* 
+* Entry point method to read all supported file format
+* public static string ReadText(string fileName)
+* requires: string name of file
+* effect: returns string text content of file
+*
+* PDF File Reader
+* public static string GetTextFromPDF(string filename)
+* requires: string name of pdf file
+* effect: returns string text content of the pdf file
+
+* WORD DOC File Reader
+* public static string GetTextFromWord(string filename)
+* requires: string name of doc/docx file
+* effect: returns string text content of the doc/docx file
+
+* TXT File Reader
+* public static string GetTextFromTEXT(string filename)
+* requires: string name of txt file
+* effect: returns string text content of the txt file
+
+* PPT File Reader
+* public static string GetTextFromPPT(string filename)
+* requires: string name of ppt/pptx file
+* effect: returns string text content of the ppt/pptx file
+
+* PDF File Reader
+* public static string GetTextFromPDF(string filename)
+* requires: string name of pdf file
+* effect: returns string text content of the pdf file
+
+* HTML/XML File Reader
+* public static string GetTextFromHTML(string filename)
+* requires: string name of html/xml file
+* effect: returns string text content of the html/xml file
+
+* XLS/XLSX File Reader
+* public static string GetTextFromXLS(string filename)
+* requires: string name of xls/xlsx file
+* effect: returns string text content of the xls/xlsx file
+*
+* helper method to get root path
+* private static string getRootPath()
+* requires: nothing
+* effect: returns string for root path
+*
+*
+***********************************************************/
+
 namespace Search_Engine_Project.Core
 {
     public class Parser
     {
         private static string _rootPath = getRootPath();
         
+       /// <summary>
+        /// entry method for reading text from all file formats
+        /// </summary>
+        /// <param name="fileName">string for user file name</param>
+         /// <returns>string text content of file</returns>
+
         public static string ReadText(string fileName){
             string ext = Path.GetExtension(fileName);
             Console.WriteLine(ext);
@@ -45,6 +104,11 @@ namespace Search_Engine_Project.Core
             }
         }
 
+        /// <summary>
+        /// pdf text content reader
+        /// </summary>
+        /// <param name="fileName">string for user file name</param>
+         /// <returns>string text content of pdf file</returns>
         public static string GetTextFromPDF(string fileName = "Stoichiometry AP Exam Questions.pdf"){  
             try{
                 StringBuilder text = new StringBuilder();  
@@ -66,6 +130,11 @@ namespace Search_Engine_Project.Core
             }
         }  
 
+        /// <summary>
+        /// doc/docx text content reader
+        /// </summary>
+        /// <param name="fileName">string for user file name</param>
+         /// <returns>string text content of doc/docx file</returns>
         public static string GetTextFromWord(string fileName="CSC316_ASSNM.docx"){  
             try{
                 StringBuilder text = new StringBuilder();  
@@ -91,6 +160,11 @@ namespace Search_Engine_Project.Core
             }
         }  
 
+        /// <summary>
+        /// txt text content reader
+        /// </summary>
+        /// <param name="fileName">string for user file name</param>
+         /// <returns>string text content of txt file</returns>
         public static string GetTextFromText(string fileName = "LICENSE.txt"){  
             try{
                 string filePath = System.IO.Path.Combine(_rootPath, "docs", fileName);
@@ -103,6 +177,11 @@ namespace Search_Engine_Project.Core
             
         }  
 
+        /// <summary>
+        /// ppt/pptx text content reader
+        /// </summary>
+        /// <param name="fileName">string for user file name</param>
+         /// <returns>string text content of ppt/pptx file</returns>
         public static string GetTextFromPPT(string fileName = "Wired Local Area Network (LAN).pptx"){
             try{
                 string filePath = System.IO.Path.Combine(_rootPath, "docs", fileName);
@@ -128,6 +207,11 @@ namespace Search_Engine_Project.Core
             }
         }
 
+        /// <summary>
+        /// html/xml text content reader
+        /// </summary>
+        /// <param name="fileName">string for user file name</param>
+         /// <returns>string text content of html/xml file</returns>
         public static string GetTextFromHTML(string fileName = "word_unscrambler.htm"){
             string filePath = System.IO.Path.Combine(_rootPath, "docs", fileName);
             try{
@@ -142,6 +226,11 @@ namespace Search_Engine_Project.Core
             }
         }
 
+        /// <summary>
+        /// xls/xlsx text content reader
+        /// </summary>
+        /// <param name="fileName">string for user file name</param>
+         /// <returns>string text content of xls/xlsx file</returns>
         public static string GetTextFromXLS(string fileName ="dataset.xlsx"){
             IronXL.License.LicenseKey = "IRONXL.SALAUDEENAHMAD.32426-E6FBCA4380-GYFVEE-7M5GFWRMTF2Y-F4A5QLGAMLKS-IOQLT6I3UHQH-IZEVES2MKUMC-QNNUMAPN5BI6-5UT3CU-TNRRKDJ6UWSBUA-DEPLOYMENT.TRIAL-4CMNUC.TRIAL.EXPIRES.22.SEP.2021";
             string filePath = System.IO.Path.Combine(_rootPath, "docs", fileName);
@@ -171,6 +260,10 @@ namespace Search_Engine_Project.Core
             }
         }
 
+        /// <summary>
+        /// helper method to get root path
+        /// </summary>
+         /// <returns>string text of root path</returns>
         private static string getRootPath(){
             string _rootPath = Directory.GetParent(System.IO.Path.GetDirectoryName(System.AppDomain.CurrentDomain.BaseDirectory)).FullName;
             _rootPath = _rootPath.Substring(0, _rootPath.Length-9);
