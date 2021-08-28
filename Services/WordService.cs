@@ -8,24 +8,24 @@ namespace Search_Engine_Project.Services
 {
     public class WordService
     {
-        // private readonly IMongoCollection<Word> _Words;
-        private readonly Word[] _Words;
+        private readonly IMongoCollection<Word> _Words;
 
         public WordService(IWordstoreDatabaseSettings settings)
         {
             var client = new MongoClient(settings.ConnectionString);
             var database = client.GetDatabase(settings.DatabaseName);
 
-            // _Words = database.GetCollection<Word>(settings.WordsCollectionName);
-            string[] words = new string[]{ "boy", "lover", "food", "tired"};
-            var rng = new Random();
-            _Words = Enumerable.Range(0, 3).Select(index => new Word(index.ToString(), words[index], "/documents.pdf"))
-            .ToArray();
-
+            _Words = database.GetCollection<Word>(settings.WordsCollectionName);
+            var indexOptions = new CreateIndexOptions { Unique = true };
+            var indexKeys = Builders<Word>.IndexKeys.Ascending(w => w.Value);
+            var indexModel = new CreateIndexModel<Word>(indexKeys, indexOptions);
+            _Words.Indexes.CreateOne(indexModel);
         }
 
-        public List<Word> Get() =>
-            _Words.ToList();
+        public List<Word> Get() {
+            Word[] words = { };
+            return words.ToList();
+        }
 
         // public Word Get(string id) =>
         //     _Words.Find<Word>(Word => Word.Id == id).FirstOrDefault();
