@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Search_Engine_Project.Core;
 
 namespace Search_Engine_Project.Models{
     public class Word
@@ -16,15 +17,14 @@ namespace Search_Engine_Project.Models{
         [BsonElement("Name")]
         public string Value { get; set; }
 
-        public Dictionary<string, int> Documents { get; set; }
-
+        public Dictionary<string, WordFileDocument> Documents { get; set; }
 
         public Word()
         {
 
         }
 
-        public Word(string value, Dictionary<string, int> documents, string id){
+        public Word(string value, Dictionary<string, WordFileDocument> documents, string id){
             Value = value;
             Id = id;
             Documents = documents;

@@ -24,8 +24,8 @@ namespace Search_Engine_Project.Services
         }
 
         public List<Word> Get() {
-            Word[] words = { };
-            return words.ToList();
+            List<Word> words = _Words.Find<Word>(_ => true).ToList();
+            return words;
         }
 
         
