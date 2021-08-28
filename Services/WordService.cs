@@ -28,17 +28,25 @@ namespace Search_Engine_Project.Services
             return words.ToList();
         }
 
-        // public Word Get(string id) =>
-        //     _Words.Find<Word>(Word => Word.Id == id).FirstOrDefault();
+        
 
-        // public Word Create(Word Word)
-        // {
-        //     _Words.InsertOne(Word);
-        //     return Word;
-        // }
 
-        // public void Update(string id, Word WordIn) =>
-        //     _Words.ReplaceOne(Word => Word.Id == id, WordIn);
+         public Word FindOne(string id) =>
+         _Words.Find<Word>(Word => Word.Id == id).FirstOrDefault();
+
+
+         public Word FindByKeyword(string keyword) =>
+            _Words.Find<Word>(Word => Word.Value == keyword).FirstOrDefault();
+
+
+         public Word Create(Word Word)
+         {
+             _Words.InsertOne(Word);
+             return Word;
+         }
+
+         public void Update(string id, Word WordIn) =>
+         _Words.ReplaceOne(Word => Word.Id == id, WordIn);
 
         // public void Remove(Word WordIn) =>
         //     _Words.DeleteOne(Word => Word.Id == WordIn.Id);

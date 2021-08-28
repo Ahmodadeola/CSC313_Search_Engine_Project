@@ -21,7 +21,7 @@ namespace WordsApi.Controllers
         [HttpGet]
         public ActionResult<List<Word>> Get(){
             
-
+            new Indexer(_WordService).indexFile("Wired Local Area Network (LAN).pptx");
             return _WordService.Get();
         }
            
