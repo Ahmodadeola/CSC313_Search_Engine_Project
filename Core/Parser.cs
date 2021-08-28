@@ -67,18 +67,19 @@ using System.Linq;
 ***********************************************************/
 
 namespace Search_Engine_Project.Core
+
 {
     public class Parser
     {
         private static string _rootPath = getRootPath();
-        
        /// <summary>
         /// entry method for reading text from all file formats
         /// </summary>
         /// <param name="fileName">string for user file name</param>
          /// <returns>string text content of file</returns>
-
+        
         public static string ReadText(string fileName){
+
             string ext = Path.GetExtension(fileName);
             Console.WriteLine(ext);
             switch(ext){
@@ -177,10 +178,10 @@ namespace Search_Engine_Project.Core
             
         }  
 
-        /// <summary>
-        /// ppt/pptx text content reader
-        /// </summary>
-        /// <param name="fileName">string for user file name</param>
+        ///  <summary>
+        ///   ppt/pptx text content reader
+        ///  </summary>
+        ///  <param name="fileName">string for user file name</param>
          /// <returns>string text content of ppt/pptx file</returns>
         public static string GetTextFromPPT(string fileName = "Wired Local Area Network (LAN).pptx"){
             try{
@@ -264,7 +265,7 @@ namespace Search_Engine_Project.Core
         /// helper method to get root path
         /// </summary>
          /// <returns>string text of root path</returns>
-        private static string getRootPath(){
+        public static string getRootPath(){
             string _rootPath = Directory.GetParent(System.IO.Path.GetDirectoryName(System.AppDomain.CurrentDomain.BaseDirectory)).FullName;
             _rootPath = _rootPath.Substring(0, _rootPath.Length-9);
             return _rootPath;

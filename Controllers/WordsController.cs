@@ -20,7 +20,8 @@ namespace WordsApi.Controllers
 
         [HttpGet]
         public ActionResult<List<Word>> Get(){
-            Parser.ReadText("LICENSE.txt");
+            
+
             return _WordService.Get();
         }
            

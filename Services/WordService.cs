@@ -15,11 +15,12 @@ namespace Search_Engine_Project.Services
             var client = new MongoClient(settings.ConnectionString);
             var database = client.GetDatabase(settings.DatabaseName);
 
+            Console.WriteLine("db -- " + settings.WordsCollectionName);
             _Words = database.GetCollection<Word>(settings.WordsCollectionName);
             var indexOptions = new CreateIndexOptions { Unique = true };
             var indexKeys = Builders<Word>.IndexKeys.Ascending(w => w.Value);
             var indexModel = new CreateIndexModel<Word>(indexKeys, indexOptions);
-            _Words.Indexes.CreateOne(indexModel);
+            _Words.Indexes.CreateOne(indexModel); 
         }
 
         public List<Word> Get() {
