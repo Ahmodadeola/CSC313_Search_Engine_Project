@@ -28,8 +28,15 @@ namespace Search_Engine_Project.Core
                 
                 Semanter semanter = new Semanter(file);
                 Dictionary<string, int> scannedResults = semanter.getScannedDocumentData();
+
+                int documentLength = scannedResults["docLength"];
+
                 foreach(KeyValuePair<string, int> entry in scannedResults)
                 {
+
+                    if (entry.Key == "docLength") 
+                        continue;
+
                     string word = entry.Key;
                     int frequency = entry.Value;
 
@@ -38,8 +45,13 @@ namespace Search_Engine_Project.Core
                    if (wordDocument == null) {
                         Console.WriteLine("Null -- " + word);
                         // key value pair for the document file name and the frequency of the current word in it.
-                        var documents = new Dictionary<string, int>();
-                        documents.Add(file, frequency);
+
+
+                        // create a new keyword document
+                        WordFileDocument keywordDocument = new WordFileDocument(file, documentLength, word, frequency);
+                        var documents = new Dictionary<string, WordFileDocument>();
+                        documents.Add(file, keywordDocument);
+
                         Word _wordDocument = new Word();
                         _wordDocument.Value = word;
                         _wordDocument.Documents = documents;
@@ -51,8 +63,9 @@ namespace Search_Engine_Project.Core
                         // if keyword already exists, update it with a new file document
                         if (!wordDocument.Documents.ContainsKey(file))
                         {
-                            Console.WriteLine("Doesn't Existss");
-                            wordDocument.Documents.Add(file, frequency);
+                            Console.WriteLine("Doesn't Exist");
+                            WordFileDocument keywordDocument = new WordFileDocument(file, documentLength, word, frequency);
+                            wordDocument.Documents.Add(file, keywordDocument);
                             _WordService.Update(wordDocument.Id, wordDocument);
                         }
                     }
@@ -64,7 +77,7 @@ namespace Search_Engine_Project.Core
             {   
                 Console.WriteLine("Error while indexing document, " +  Ex);
                 return false;
-            }
+            } 
 
         }
     }
