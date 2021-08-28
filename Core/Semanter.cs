@@ -29,9 +29,7 @@ namespace Search_Engine_Project.Core
             try
             {
                 string rootPath = Parser.getRootPath();
-                Console.WriteLine(rootPath);
                 string _stopWordsPath = System.IO.Path.Combine(rootPath, "assets", stopWordsFile);
-                Console.WriteLine(_stopWordsPath);
 
                 foreach (String word in File.ReadAllLines(_stopWordsPath))
                     _stopWords.Add(word);

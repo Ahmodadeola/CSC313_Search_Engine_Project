@@ -20,61 +20,63 @@ namespace WordsApi.Controllers
 
         [HttpGet]
         public ActionResult<List<Word>> Get(){
-            
-            new Indexer(_WordService).indexFile("Wired Local Area Network (LAN).pptx");
+
+            /*new Indexer(_WordService).indexFile("Wired Local Area Network (LAN).pptx");*/
+            Crawler crawler = new Crawler(_WordService);
+            crawler.crawl();
             return _WordService.Get();
         }
-           
 
-    //     [HttpGet("{id:length(24)}", Name = "GetWord")]
-    //     public ActionResult<Word> Get(string id)
-    //     {
-    //         var Word = _WordService.Get(id);
 
-    //         if (Word == null)
-    //         {
-    //             return NotFound();
-    //         }
+        //     [HttpGet("{id:length(24)}", Name = "GetWord")]
+        //     public ActionResult<Word> Get(string id)
+        //     {
+        //         var Word = _WordService.Get(id);
 
-    //         return Word;
-    //     }
+        //         if (Word == null)
+        //         {
+        //             return NotFound();
+        //         }
 
-    //     [HttpPost]
-    //     public ActionResult<Word> Create(Word Word)
-    //     {
-    //         _WordService.Create(Word);
+        //         return Word;
+        //     }
 
-    //         return CreatedAtRoute("GetWord", new { id = Word.Id.ToString() }, Word);
-    //     }
+        //     [HttpPost]
+        //     public ActionResult<Word> Create(Word Word)
+        //     {
+        //         _WordService.Create(Word);
 
-    //     [HttpPut("{id:length(24)}")]
-    //     public IActionResult Update(string id, Word WordIn)
-    //     {
-    //         var Word = _WordService.Get(id);
+        //         return CreatedAtRoute("GetWord", new { id = Word.Id.ToString() }, Word);
+        //     }
 
-    //         if (Word == null)
-    //         {
-    //             return NotFound();
-    //         }
+        //     [HttpPut("{id:length(24)}")]
+        //     public IActionResult Update(string id, Word WordIn)
+        //     {
+        //         var Word = _WordService.Get(id);
 
-    //         _WordService.Update(id, WordIn);
+        //         if (Word == null)
+        //         {
+        //             return NotFound();
+        //         }
 
-    //         return NoContent();
-    //     }
+        //         _WordService.Update(id, WordIn);
 
-    //     [HttpDelete("{id:length(24)}")]
-    //     public IActionResult Delete(string id)
-    //     {
-    //         var Word = _WordService.Get(id);
+        //         return NoContent();
+        //     }
 
-    //         if (Word == null)
-    //         {
-    //             return NotFound();
-    //         }
+        //     [HttpDelete("{id:length(24)}")]
+        //     public IActionResult Delete(string id)
+        //     {
+        //         var Word = _WordService.Get(id);
 
-    //         _WordService.Remove(Word.Id);
+        //         if (Word == null)
+        //         {
+        //             return NotFound();
+        //         }
 
-    //         return NoContent();
-    //     }
+        //         _WordService.Remove(Word.Id);
+
+        //         return NoContent();
+        //     }
     }
 }
