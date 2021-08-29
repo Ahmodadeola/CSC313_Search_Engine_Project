@@ -1,4 +1,3 @@
-using Search_Engine_Project.Models;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -63,7 +62,7 @@ namespace Search_Engine_Project.Core
                         // if keyword already exists, update it with a new file document
                         if (!wordDocument.Documents.ContainsKey(file))
                         {
-                            Console.WriteLine("Doesn't Exist");
+                            // Console.WriteLine("Doesn't Exist");
                             WordFileDocument keywordDocument = new WordFileDocument(file, documentLength, word, frequency);
                             wordDocument.Documents.Add(file, keywordDocument);
                             _WordService.Update(wordDocument.Id, wordDocument);

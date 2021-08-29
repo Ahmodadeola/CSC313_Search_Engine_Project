@@ -19,10 +19,10 @@ namespace WordsApi.Controllers
         }
 
         [HttpGet]
-        public ActionResult<List<Word>> Get(){
+        public ActionResult<List<KeywordsDocument>> Get(){
             
-            new Indexer(_WordService).indexFile("Wired Local Area Network (LAN).pptx");
-            return _WordService.Get();
+            return Ranker.TestRankQueryDocuments();
+            // return _WordService.Get();
         }
            
 
