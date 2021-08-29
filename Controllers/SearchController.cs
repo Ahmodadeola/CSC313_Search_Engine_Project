@@ -41,7 +41,7 @@ namespace Search_Engine_Project.Controllers
             watch.Stop();
 
             SearchResponse response = new SearchResponse(results, queryTime, rankingTime);
-            return response;
+            return response; // response
         }
     }
 }
