@@ -136,7 +136,7 @@ namespace Search_Engine_Project.Core
                 // Compute Cosine Similarity For Document and Query and Get Rank Of Document.
                 double rankScore = ComputeCosineAngularRank(documentVector, queryVector);
                 keywordsDocument.DocumentRank = rankScore;
-                keywordsDocument.DocumentLink = System.IO.Path.Combine(_rootPath, "webroot", "indexed", documentName);
+                keywordsDocument.DocumentLink = System.IO.Path.Combine(_rootPath, "wwwroot", "indexed", documentName);
                 sortedDocuments.Add(keywordsDocument);
             }
 

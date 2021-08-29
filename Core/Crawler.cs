@@ -26,7 +26,7 @@ namespace Search_Engine_Project.Core
 
             string rootPath = Parser.getRootPath();
             string unindexedPath = Path.Combine(rootPath, "docs", "unindexed");
-            string indexedPath = Path.Combine(rootPath, "webroot", "indexed");
+            string indexedPath = Path.Combine(rootPath, "wwwroot", "indexed");
             
             // loop through all files in unindexed folder
             foreach (string file in Directory.GetFiles(Path.Combine(unindexedPath))){
