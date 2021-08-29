@@ -29,9 +29,6 @@ namespace Search_Engine_Project.Services
             return words;
         }
 
-        
-
-
          public Word FindOne(string id) =>
          _Words.Find<Word>(Word => Word.Id == id).FirstOrDefault();
 

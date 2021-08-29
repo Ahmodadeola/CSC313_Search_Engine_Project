@@ -7,7 +7,6 @@ using System.Text.RegularExpressions;
 
 namespace Search_Engine_Project.Core
 {
-
     public class Semanter
     {
 
@@ -52,12 +51,13 @@ namespace Search_Engine_Project.Core
             wordFrequencyMap.Add("docLength", 0);
 
             foreach (string splitWord in Semanter.Splitwords(ParsedDocument)) {
-                wordFrequencyMap["docLength"]++;
 
                 string word = splitWord.ToLower().Trim();
                 if (_stopWords.Contains(word))
                     continue;
-                
+
+                wordFrequencyMap["docLength"]++;
+
                 if (wordFrequencyMap.ContainsKey(word))
                 {
                     wordFrequencyMap[word]++;
