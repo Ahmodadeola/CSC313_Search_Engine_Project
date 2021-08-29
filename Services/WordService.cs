@@ -3,6 +3,7 @@ using MongoDB.Driver;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using MongoDB.Bson;
 
 namespace Search_Engine_Project.Services
 {
@@ -35,8 +36,12 @@ namespace Search_Engine_Project.Services
          public Word FindByKeyword(string keyword) =>
             _Words.Find<Word>(Word => Word.Value == keyword).FirstOrDefault();
 
-
-         public Word Create(Word Word)
+        public List<Word> FindByKeywords(HashSet<string> keywords)
+        {
+            var filter = Builders<Word>.Filter.In("Value", keywords); ;
+            return _Words.Find<Word>(filter).ToList();
+        }
+        public Word Create(Word Word)
          {
              _Words.InsertOne(Word);
              return Word;

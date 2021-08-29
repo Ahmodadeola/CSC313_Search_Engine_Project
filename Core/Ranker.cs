@@ -40,51 +40,6 @@ namespace Search_Engine_Project.Core
         5. Find Similarity Using Cosine Similarity Method
        */
 
-
-        public static List<KeywordsDocument> TestRankQueryDocuments()
-        {   
-            WordFileDocument doc5 = new WordFileDocument("Test Document 5.txt", 200, "wiring", 6);
-            WordFileDocument doc2 = new WordFileDocument("Test Document 2.txt", 200, "destination", 3);
-            WordFileDocument doc3 = new WordFileDocument("Test Document 3.txt", 226, "wiring", 4);
-            WordFileDocument doc4 = new WordFileDocument("Test Document 4.txt", 228, "blow", 6);
-            WordFileDocument doc1 = new WordFileDocument("Test Document 1.txt", 289, "wiring", 4);
-
-            var wiring = new Dictionary<string, WordFileDocument>();
-            wiring.Add(doc1.DocumentName, doc1);
-            wiring.Add(doc3.DocumentName, doc3);
-            wiring.Add(doc5.DocumentName, doc5);
-
-            var destination = new Dictionary<string, WordFileDocument>();
-            destination.Add(doc2.DocumentName, doc2);
-
-            var blow = new Dictionary<string, WordFileDocument>();
-            blow.Add(doc4.DocumentName, doc4);
-
-    
-            Word word1 = new Word("wiring", wiring, "1");
-            Word word2 = new Word("destination", destination, "2");
-            Word word3 = new Word("blow", blow, "3");
-
-
-            List<Word> list = new List<Word>();
-            list.Add(word1);
-            list.Add(word2);
-            list.Add(word3);
-         
-            List<string> query = new List<string>();
-            query.Add("wiring");
-            query.Add("destination");
-            query.Add("blow");
-
-            var result = RankQueryDocuments(list, query);
-            
-            return result;
-        }
-
-
-
-
-
         private static string _rootPath = Parser.getRootPath();
 
         public static List<KeywordsDocument> RankQueryDocuments(List<Word> WordList, List<string> query)
@@ -162,8 +117,6 @@ namespace Search_Engine_Project.Core
                     // Get IDF for the keyword/term
                     double IDFWeight = GetIDFWeight(totalDocumentsCount, DFWeight);
 
-                    Console.WriteLine(DFWeight + " " + totalDocumentsCount);
-
 
                     // Get TF-IDF score for the document based on keyword
                     double TFIDFWeight = TFWeight * IDFWeight;
@@ -183,9 +136,8 @@ namespace Search_Engine_Project.Core
                 // Compute Cosine Similarity For Document and Query and Get Rank Of Document.
                 double rankScore = ComputeCosineAngularRank(documentVector, queryVector);
                 keywordsDocument.DocumentRank = rankScore;
-                keywordsDocument.DocumentLink = System.IO.Path.Combine(_rootPath, "docs", "indexed", documentName);
+                keywordsDocument.DocumentLink = System.IO.Path.Combine(_rootPath, "webroot", "indexed", documentName);
                 sortedDocuments.Add(keywordsDocument);
-                // Console.WriteLine(rankScore);
             }
 
             var rankedDocuments = sortedDocuments.OrderByDescending(x => x.DocumentRank).ToList();
@@ -210,12 +162,6 @@ namespace Search_Engine_Project.Core
 
 
             double result = dotProduct / (normOfVectorA * normOfVectorB);
-            
-            Console.WriteLine(normOfVectorA);
-            Console.WriteLine(normOfVectorB);
-            Console.WriteLine(dotProduct);
-            Console.WriteLine(result);
-            Console.WriteLine("----------");
 
             return result; 
         }
@@ -246,6 +192,53 @@ namespace Search_Engine_Project.Core
         private static double GetIDFWeight(double totalDocumentsCount, double DFweight) {
             return (totalDocumentsCount > 0) ? 1 + Math.Log(totalDocumentsCount/DFweight) : 0;
         }
+
+
+
+        
+        /*
+        public static List<KeywordsDocument> TestRankQueryDocuments()
+        {   
+            WordFileDocument doc5 = new WordFileDocument("Test Document 5.txt", 200, "wiring", 6);
+            WordFileDocument doc2 = new WordFileDocument("Test Document 2.txt", 200, "destination", 3);
+            WordFileDocument doc3 = new WordFileDocument("Test Document 3.txt", 226, "wiring", 4);
+            WordFileDocument doc4 = new WordFileDocument("Test Document 4.txt", 228, "blow", 6);
+            WordFileDocument doc1 = new WordFileDocument("Test Document 1.txt", 289, "wiring", 4);
+
+            var wiring = new Dictionary<string, WordFileDocument>();
+            wiring.Add(doc1.DocumentName, doc1);
+            wiring.Add(doc3.DocumentName, doc3);
+            wiring.Add(doc5.DocumentName, doc5);
+
+            var destination = new Dictionary<string, WordFileDocument>();
+            destination.Add(doc2.DocumentName, doc2);
+
+            var blow = new Dictionary<string, WordFileDocument>();
+            blow.Add(doc4.DocumentName, doc4);
+
+    
+            Word word1 = new Word("wiring", wiring, "1");
+            Word word2 = new Word("destination", destination, "2");
+            Word word3 = new Word("blow", blow, "3");
+
+
+            List<Word> list = new List<Word>();
+            list.Add(word1);
+            list.Add(word2);
+            list.Add(word3);
+         
+            List<string> query = new List<string>();
+            query.Add("wiring");
+            query.Add("destination");
+            query.Add("blow");
+
+            var result = RankQueryDocuments(list, query);
+            
+            return result;
+        } */
+
+
+
 
 
 

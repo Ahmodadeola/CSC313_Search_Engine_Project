@@ -81,7 +81,6 @@ namespace Search_Engine_Project.Core
         public static string ReadText(string fileName){
 
             string ext = Path.GetExtension(fileName);
-            Console.WriteLine(ext);
             switch(ext){
                 case ".txt":
                     return GetTextFromText(fileName);
@@ -123,7 +122,6 @@ namespace Search_Engine_Project.Core
 
                 SimpleTextExtractionStrategy strategy = new SimpleTextExtractionStrategy();
                 string tx = page.ExtractText(strategy);
-                Console.WriteLine(tx);
                 return tx;
             }catch(Exception ex){
                 return "";
@@ -154,7 +152,6 @@ namespace Search_Engine_Project.Core
                     }
                 }
 
-                Console.WriteLine(text.ToString());
                 return text.ToString();  
             }catch(Exception ex){
                 return "";
@@ -170,7 +167,6 @@ namespace Search_Engine_Project.Core
             try{
                 string filePath = System.IO.Path.Combine(_rootPath, "docs", fileName);
                 string text = System.IO.File.ReadAllText(filePath);  
-                Console.WriteLine(text.ToString());
                 return text.ToString();  
             }catch(Exception ex){
                 return "";
@@ -201,7 +197,6 @@ namespace Search_Engine_Project.Core
                         }
                     }
                 }
-                Console.WriteLine(text.ToString());
                 return text.ToString();
             }catch(Exception ex){
                     return "";
@@ -219,7 +214,6 @@ namespace Search_Engine_Project.Core
                 string text;
                 Document docHTML = new Document();
                 docHTML.LoadHTML(new StreamReader(filePath), XHTMLValidationType.None);
-                Console.WriteLine(docHTML);
                 return "";
             }catch(Exception ex){
                 Console.WriteLine(ex);
@@ -253,7 +247,6 @@ namespace Search_Engine_Project.Core
                         // Console.WriteLine();
                         text.Append('\n');
                 }
-                Console.WriteLine(text.ToString().Trim());
                 return text.ToString().Trim();
             }catch(Exception ex){
                 Console.WriteLine(ex);
