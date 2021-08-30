@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text.RegularExpressions;
+using Microsoft.AspNetCore.Http;
 using Search_Engine_Project.Models;
 
 namespace Search_Engine_Project.Core
@@ -144,10 +145,11 @@ namespace Search_Engine_Project.Core
                 // Create Document Vector
                 double[] documentVector = Vector.ToArray();
 
+                string baseUrl = "https://localhost:5001/";
                 // Compute Cosine Similarity For Document and Query and Get Rank Of Document.
                 double rankScore = ComputeCosineAngularRank(documentVector, queryVector);
                 keywordsDocument.DocumentRank = rankScore;
-                keywordsDocument.DocumentLink = System.IO.Path.Combine(_rootPath, "wwwroot", "indexed", documentName);
+                keywordsDocument.DocumentLink =  baseUrl + "indexed/" + documentName;
                 sortedDocuments.Add(keywordsDocument);
             }
 
