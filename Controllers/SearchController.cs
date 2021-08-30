@@ -5,11 +5,7 @@ using Search_Engine_Project.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
-using Search_Engine_Project.Core;
 using System.Diagnostics;
-
-// For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
 namespace Search_Engine_Project.Controllers
 {
@@ -24,7 +20,7 @@ namespace Search_Engine_Project.Controllers
         {
             _WordService = WordService;
         }
-        // GET: api/<SearchController>
+
         [HttpGet]
         public ActionResult<SearchResponse> Get(string query)
         {

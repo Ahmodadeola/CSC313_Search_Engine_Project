@@ -46,7 +46,7 @@ namespace Search_Engine_Project
             {
                 app.UseDeveloperExceptionPage();
             }
-
+            app.UseStaticFiles();
             app.UseHttpsRedirection();
 
             app.UseRouting();
