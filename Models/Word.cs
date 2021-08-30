@@ -21,7 +21,7 @@ namespace Search_Engine_Project.Models{
 
         public Word()
         {
-
+            
         }
 
         public Word(string value, Dictionary<string, WordFileDocument> documents, string id){
