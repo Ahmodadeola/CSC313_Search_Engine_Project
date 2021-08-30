@@ -25,6 +25,7 @@ namespace Search_Engine_Project.Controllers
             _WordService = WordService;
         }
         // GET: api/<SearchController>
+        ///<summary>Endpoint to make a search query</summary>
         [HttpGet]
         public ActionResult<SearchResponse> Get(string query)
         {
@@ -37,7 +38,6 @@ namespace Search_Engine_Project.Controllers
             double queryTime = (double)watch.ElapsedMilliseconds;
             var results = Ranker.RankQueryDocuments(words, splits);
             double rankingTime = (double)watch.ElapsedMilliseconds - queryTime;
-
             watch.Stop();
 
             SearchResponse response = new SearchResponse(results, queryTime, rankingTime);

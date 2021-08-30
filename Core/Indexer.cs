@@ -20,19 +20,22 @@ namespace Search_Engine_Project.Core
             _WordService = wordService;
         }
 
+
+        /// <summary>
+        ///  Method to index a file in the database
+        /// </summary>
+        /// <param name="file">Name of file to be indexed (+ extension)</param>
+        /// <returns>Boolean(True/False) depending on whether successully indexed</returns>
+        
         public bool indexFile(string file)
         {   
             try
-            {
-                
+            {        
                 Semanter semanter = new Semanter(file);
                 Dictionary<string, int> scannedResults = semanter.getScannedDocumentData();
-
                 int documentLength = scannedResults["docLength"];
-
                 foreach(KeyValuePair<string, int> entry in scannedResults)
                 {
-
                     if (entry.Key == "docLength") 
                         continue;
 

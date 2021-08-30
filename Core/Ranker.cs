@@ -10,15 +10,9 @@ namespace Search_Engine_Project.Core
     public class Ranker
     {
       /**
-       ----Needed Input for query ranking----
-        List of all Documents (Name + Length)
-        List of all Query words (From word Object having each document and it's frequency in the document"
-        word
-            -- Value
-            -- Documents
-               -- document -> { DocumentName, DocumentLength, Frequency }
+        Ranks a List of documents given the respective query.
         
-        ALGORITHM
+        TF-IDF ALGORITHM to Rank Documents.
         1. let each word in the query be a term
         2. Compute The Term Frequency TF(t, d) of each term t in each document d
            TF(t, d) = N(t, d), wherein (t, d) = term frequency for a term t in document d.
@@ -37,14 +31,23 @@ namespace Search_Engine_Project.Core
           
             tf-idf(t, d) = tf(t, d) * idf(t, d)
         
-        5. Find Similarity Using Cosine Similarity Method
+        5. Find Similarity of each document to the query Using Cosine Similarity Method and sort
+           document by their similarity score.
        */
-
+        
+        
         private static string _rootPath = Parser.getRootPath();
 
+
+        /// <summary>
+        ///   Obtains all associated documents from a List of Word
+        ///   from the controller and Returns a List of sorted documents.
+        /// </summary>
+        /// <param name="WordList">List of words  (type Word) returned from the database</param>
+        /// <param name="query">list of all keywords in the query string</param>
+        /// <returns>List of all documents, sorted</returns>
         public static List<KeywordsDocument> RankQueryDocuments(List<Word> WordList, List<string> query)
         {
-
             // Parse Word list into KeywordsDocuments format
             Dictionary<string, KeywordsDocument> ParsedDocuments = new Dictionary<string, KeywordsDocument>();
             Dictionary<string, double> DocumentFrequencies = new Dictionary<string, double>();
@@ -82,10 +85,19 @@ namespace Search_Engine_Project.Core
             double totalDocumentCount = ParsedDocuments.Count() + 1;
             double[] queryVector = GetVectorFromQuery(query, totalDocumentCount);
 
-            return ComputeWeightsAndRank(ParsedDocuments, DocumentFrequencies, totalDocumentCount, queryVector);
-            
+            return ComputeWeightsAndRank(ParsedDocuments, DocumentFrequencies, totalDocumentCount, queryVector);    
         }
 
+
+        ///<summary>
+        /// Computes TF, IDF, TF-IDF and rankscore for all documents and 
+        /// returns a List of sorted documents.
+        ///</summary>
+        ///<param name="ParsedDocuments">List of unsorted documents to be sorted!</param>
+        ///<param name="DocumentFrequencies">DFs of each keyword in the query.</param>
+        ///<param name="totalDocumentsCount">number of documents to be processed</param>
+        ///<param name="queryVector">Vector representation of query words"><param>
+        ///<returns>List of documents in sorted order ranked by relevance to query</returns>
         private static List<KeywordsDocument> ComputeWeightsAndRank(
           Dictionary<string, KeywordsDocument> ParsedDocuments,
           Dictionary<string, double> DocumentFrequencies, 
@@ -100,7 +112,6 @@ namespace Search_Engine_Project.Core
 
                 string documentName = documentEntry.Key;
                 KeywordsDocument keywordsDocument = documentEntry.Value;
-
                 List<double> Vector = new List<double>();
                  
                 foreach(KeyValuePair<string, double> keywordsFrequencyPair in keywordsDocument.KeywordsCount)
@@ -144,7 +155,14 @@ namespace Search_Engine_Project.Core
             return rankedDocuments;
         }
 
-
+        ///<summary>
+        /// Utilify Function to compute the cosine angle between two vectors existing in 
+        /// the same vector space (having same dimension). We use this to get the similarity between
+        /// a document and a query using their respective vector representations 
+        ///</summary>
+        ///<param name="VectorA">Vector A</param>
+        ///<param name="VectorB">Vector B</param>
+        ///<returns>The cosine similarity (cos theta) between the vectors</returns>
         private static double ComputeCosineAngularRank(double[] VectorA, double[] VectorB)
         {
             int n = VectorA.Length;
@@ -168,6 +186,12 @@ namespace Search_Engine_Project.Core
 
 
 
+        ///<summary>
+        /// Generates Vector representation of the query. taking the TF-IDF value of each word
+        ///</summary>
+        ///<param name="query">List of words in the query</param>
+        ///<param name="totalDocumentsCount">Number of documents</param>
+        ///<returns>vector representation of query</returns>
         private static double[] GetVectorFromQuery(List<string> query, double totalDocumentsCount) 
         {
             List<double> result = new List<double>();
@@ -185,17 +209,16 @@ namespace Search_Engine_Project.Core
             return queryVector;
         }
 
-        private static double TfWeight(double count) {
-            return (count == 0) ? 0 : 1 + Math.Log(count);
-        }
-
+        /// <summary>
+        ///  Utility functions to get inverse document frequency (IDF) of a word
+        /// </summary>
+        /// <param name="totalDocumentsCount">No of documents</param>
+        /// <param name="DFweight">Document Frequency of the word</param>
+        /// <returns>IDF score of a word</returns>
         private static double GetIDFWeight(double totalDocumentsCount, double DFweight) {
             return (totalDocumentsCount > 0) ? 1 + Math.Log(totalDocumentsCount/DFweight) : 0;
         }
 
-
-
-        
         /*
         public static List<KeywordsDocument> TestRankQueryDocuments()
         {   

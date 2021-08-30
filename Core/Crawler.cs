@@ -20,6 +20,12 @@ namespace Search_Engine_Project.Core
             _WordService = wordService;
             _indexer = new Indexer(wordService);
         }
+       
+
+        /// <summary>
+        /// Method to crawl documents in the unindexed directory and index them
+        /// then move them to the indexed directory.
+        /// </summary>
         public void crawl()
         {
             Console.WriteLine("---------- Crawling started -----------");
@@ -42,6 +48,8 @@ namespace Search_Engine_Project.Core
                     {
                         File.Delete(destination);
                     }
+
+
                     File.Move(fileToMove, destination, true);
                     if (File.Exists(fileToMove))
                     {

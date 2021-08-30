@@ -66,6 +66,7 @@ using System.Linq;
 *
 ***********************************************************/
 
+
 namespace Search_Engine_Project.Core
 
 {
@@ -264,6 +265,4 @@ namespace Search_Engine_Project.Core
             return _rootPath;
         }
     }
-
-    
 }

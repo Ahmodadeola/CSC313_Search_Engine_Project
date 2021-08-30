@@ -18,6 +18,8 @@ namespace WordsApi.Controllers
             _WordService = WordService;
         }
 
+
+        ///<summary>Endpoint to trigger crawler</summary>
         [HttpGet]
         public ActionResult<List<Word>> Get(){
 

@@ -7,6 +7,11 @@ using System.Text.RegularExpressions;
 
 namespace Search_Engine_Project.Core
 {
+    ///<summary>
+    /// Semanter Class contains static helper methods to split string of words
+    /// and remove irrelevant words. It contains an instance method getScannedDocumentData()
+    /// to scan a document and compute the frequency of each keyword in the document. 
+    ///</summary>
     public class Semanter
     {
 
@@ -19,32 +24,47 @@ namespace Search_Engine_Project.Core
         public string ParsedDocument { get => _parsedDocument; }
         private string _parsedDocument;
 
-        private string stopWordsFile = "stopwords.txt";
+        private const string StopWordsFile = "stopwords.txt";
 
   
+        ///<summary>
+        /// Creates an instance of the Semanter.
+        /// <param name="documentName">String for document file name</param>
+        ///</summary>
+        /// <returns></returns>
         public Semanter(String DocumentName)
         {
             _fileName = DocumentName;
             try
             {
                 string rootPath = Parser.getRootPath();
-                string _stopWordsPath = System.IO.Path.Combine(rootPath, "assets", stopWordsFile);
+                string _stopWordsPath = System.IO.Path.Combine(rootPath, "assets", StopWordsFile);
 
                 foreach (String word in File.ReadAllLines(_stopWordsPath))
                     _stopWords.Add(word);
             }
+
             catch (Exception ex)
             {
                 throw new IOException("The specified path for stopwords could not be Read", ex);
             }
 
-            // parse document
+            // Parse document
             string readText = Parser.ReadText(DocumentName);
             _parsedDocument = readText;
             
         }
 
 
+        /// <summary>
+        ///   Instance method. Removes stop words and punctuations
+        ///   and computes the frequency of each keyword in the document
+        ///   passed to the Semanter
+        /// </summary>
+        /// <returns>
+        ///  A Dictionary (key-value pair) with keys as the keyword and value
+        ///  as the frequency of the keyword in the document.
+        /// </returns>
         public Dictionary<string, int> getScannedDocumentData()
         {
             Dictionary<string, int> wordFrequencyMap = new Dictionary<string, int>(); 
@@ -70,14 +90,6 @@ namespace Search_Engine_Project.Core
             Dictionary<string, int> scannedResults = wordFrequencyMap;
             return scannedResults;
         }
-
-
-        public static void printDictionary(Dictionary<string, int> keyValues)
-        {
-            foreach(KeyValuePair<string, int> entry in keyValues)
-                Console.WriteLine(" - " + entry.Key + " ----> " + entry.Value);
-        }
-
 
         /// <summary>
         ///  An array of all punctutions, can be used for splitting text into constituent words
