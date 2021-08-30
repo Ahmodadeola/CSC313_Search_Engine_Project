@@ -113,7 +113,7 @@ namespace Search_Engine_Project.Core
             try{
                 StringBuilder text = new StringBuilder();  
                 //form file path
-                string filePath = System.IO.Path.Combine(_rootPath, "docs", fileName);
+                string filePath = System.IO.Path.Combine(_rootPath, "docs", "unindexed", fileName);
                 
                 PdfDocument doc = new PdfDocument();
                 doc.LoadFromFile(filePath);
@@ -137,7 +137,7 @@ namespace Search_Engine_Project.Core
         public static string GetTextFromWord(string fileName="CSC316_ASSNM.docx"){  
             try{
                 StringBuilder text = new StringBuilder();  
-                string filePath = System.IO.Path.Combine(_rootPath, "docs", fileName);  
+                string filePath = System.IO.Path.Combine(_rootPath, "docs", "unindexed", fileName);  
 
                 //Load Document
                 Document document = new Document();
@@ -165,7 +165,7 @@ namespace Search_Engine_Project.Core
          /// <returns>string text content of txt file</returns>
         public static string GetTextFromText(string fileName = "LICENSE.txt"){  
             try{
-                string filePath = System.IO.Path.Combine(_rootPath, "docs", fileName);
+                string filePath = System.IO.Path.Combine(_rootPath, "docs", "unindexed", fileName);
                 string text = System.IO.File.ReadAllText(filePath);  
                 return text.ToString();  
             }catch(Exception ex){
@@ -181,7 +181,7 @@ namespace Search_Engine_Project.Core
          /// <returns>string text content of ppt/pptx file</returns>
         public static string GetTextFromPPT(string fileName = "Wired Local Area Network (LAN).pptx"){
             try{
-                string filePath = System.IO.Path.Combine(_rootPath, "docs", fileName);
+                string filePath = System.IO.Path.Combine(_rootPath, "docs", "unindexed", fileName);
                 Presentation presentation = new Presentation(filePath, FileFormat.Pptx2010);
                 StringBuilder text = new StringBuilder();  
                 foreach (ISlide slide in presentation.Slides)
@@ -209,7 +209,7 @@ namespace Search_Engine_Project.Core
         /// <param name="fileName">string for user file name</param>
          /// <returns>string text content of html/xml file</returns>
         public static string GetTextFromHTML(string fileName = "word_unscrambler.htm"){
-            string filePath = System.IO.Path.Combine(_rootPath, "docs", fileName);
+            string filePath = System.IO.Path.Combine(_rootPath, "docs", "unindexed", fileName);
             try{
                 string text;
                 Document docHTML = new Document();
@@ -228,7 +228,7 @@ namespace Search_Engine_Project.Core
          /// <returns>string text content of xls/xlsx file</returns>
         public static string GetTextFromXLS(string fileName ="dataset.xlsx"){
             IronXL.License.LicenseKey = "IRONXL.SALAUDEENAHMAD.32426-E6FBCA4380-GYFVEE-7M5GFWRMTF2Y-F4A5QLGAMLKS-IOQLT6I3UHQH-IZEVES2MKUMC-QNNUMAPN5BI6-5UT3CU-TNRRKDJ6UWSBUA-DEPLOYMENT.TRIAL-4CMNUC.TRIAL.EXPIRES.22.SEP.2021";
-            string filePath = System.IO.Path.Combine(_rootPath, "docs", fileName);
+            string filePath = System.IO.Path.Combine(_rootPath, "docs", "unindexed", fileName);
             StringBuilder text = new StringBuilder();
             try{
                 WorkBook workbook = new WorkBook(filePath);

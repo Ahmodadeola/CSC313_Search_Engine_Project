@@ -1,0 +1,14 @@
+NAME:		AHMAD SALAUDEEN ADEOLA
+MATRIC NO:		170805018
+COURSE CODE: 	CSC326
+COURSE TITLE:	INTRODUCTION TO COMPILER CONSTRUCTION
+LECTURER:		DR. AKINBORO
+
+CROSS COMPILATION
+
+Cross compilation involves compiling a source code ( i.e creating an executable file) on a computer platform which isn't  meant to run the code or doesn't support the resulting code, the output is utilized on another platform which is the target machine. 
+The host system has the necessary tools and hardware resources required to compile the source code while the output will be launched on the target system. 
+The .NET applications for platforms like the Windows mobile on the ARM architecture have to be compiled on windows PC before it can be made available for the target platform like Windows mobile, android apps are also developed through a similar routine.
+SOURCE-TO-SOURCE COMPILATION
+Source-to-source compilation is concerned with producing a source code output in a language, having supplied a source code input in another language or the same language but with some slight or significant differences such as version difference. 
+Source to source compilation is commonly used in areas like web development where languages like JavaScript latest versions (i.e ECMASCRIPT's latest) or extensions/supersets like TypeScript, JSX would need to be translated into a version that can be assured to be supported (i.e ES5) by most browsers available, a commonly used transpiler to carry out this action is Babel which supports translating from and to different versions or extensions of Javascript. Other source-to-source compilers include JSweet, J2ObjC, Swiftify.
